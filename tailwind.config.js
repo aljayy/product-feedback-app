@@ -39,14 +39,14 @@ module.exports = {
           lineHeight: "2.2rem",
         },
       ],
-      "lg-body": [
+      "l-body": [
         "1.6rem",
         {
           fontWeight: "400",
           lineHeight: "2.3rem",
         },
       ],
-      "sm-header": [
+      "s-header": [
         "1.4rem",
         {
           fontWeight: "700",
@@ -54,7 +54,7 @@ module.exports = {
           lineHeight: "2rem",
         },
       ],
-      "md-header": [
+      "m-header": [
         "1.8rem",
         {
           fontWeight: "700",
@@ -62,7 +62,7 @@ module.exports = {
           lineHeight: "2.6rem",
         },
       ],
-      "lg-header": [
+      "l-header": [
         "2rem",
         {
           fontWeight: "700",
@@ -70,7 +70,7 @@ module.exports = {
           lineHeight: "2.9rem",
         },
       ],
-      "xlg-header": [
+      "xl-header": [
         "2.4rem",
         {
           fontWeight: "700",
@@ -83,6 +83,28 @@ module.exports = {
       s: "375px",
       m: "768px",
       l: "1440px",
+    },
+    spacing: {
+      0.5: "0.2rem",
+      1: "0.4rem",
+      1.5: "0.6rem",
+      2: "0.8rem",
+      2.5: "1rem",
+      3: "1.2rem",
+      3.5: "1.4rem",
+      4: "1.6rem",
+      4.5: "1.8rem",
+      5: "2rem",
+      5.5: "2.2rem",
+      6: "2.4rem",
+      6.5: "2.6rem",
+      7: "2.8rem",
+      7.5: "3rem",
+      8: "3.2rem",
+      8.5: "3.6rem",
+      9: "3.6rem",
+      9.5: "3.8rem",
+      10: "4rem",
     },
     extend: {
       fontFamily: {
