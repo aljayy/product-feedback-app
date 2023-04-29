@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import chevron from "../../assets/shared/chevronlight.svg";
 import PurpleBtn from "../UI/Buttons/PurpleBtn";
+import Dropdown from "../UI/Dropdown/Dropdown";
 
 function SuggestionBar() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -9,10 +10,15 @@ function SuggestionBar() {
     setShowDropdown(!showDropdown);
   }
 
-  console.log(showDropdown);
+  const sortingOpts = [
+    { title: "Most Upvotes", selected: true },
+    { title: "Least Upvotes", selected: false },
+    { title: "Most Comments", selected: false },
+    { title: "Least Comments", selected: false },
+  ];
 
   return (
-    <div className="bg-navySecondary h-[5.6rem] px-6 py-2 flex items-center justify-between font-main">
+    <div className="relative bg-navySecondary h-[5.6rem] px-6 py-2 flex items-center justify-between font-main">
       <div className="text-white text-s-body flex gap-2 items-center">
         <p className="font-normal">
           Sort by :{" "}
@@ -23,9 +29,12 @@ function SuggestionBar() {
         <div
           className={`${
             showDropdown ? "rotate-180" : "rotate-0"
-          } ease-in-out duration-500`}
+          } ease-in-out duration-300`}
         >
           <img src={chevron} alt="Chevron Icon" />
+        </div>
+        <div className="absolute top-[5rem] w-[20rem]">
+          <Dropdown options={sortingOpts} />
         </div>
       </div>
       <PurpleBtn>+ Add Feedback</PurpleBtn>
