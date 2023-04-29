@@ -79,6 +79,10 @@ module.exports = {
         },
       ],
     },
+    rotate: {
+      0: "0deg",
+      180: "180deg",
+    },
     screens: {
       s: "375px",
       m: "768px",
