@@ -14,11 +14,23 @@ function SuggestionBar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [sorts, setSorts] = useState(sortingOpts);
 
+  const selectedSort = sorts.find((option) => option.selected);
+
   function toggleDropdown() {
     setShowDropdown(!showDropdown);
   }
 
-  const selectedSort = sorts.find((option) => option.selected);
+  function changeSorting(sortingTitle) {
+    setSorts((prevSorts) => {
+      return prevSorts.map((option) => {
+        if (option.title === sortingTitle) {
+          return { ...option, selected: true };
+        } else return { ...option, selected: false };
+      });
+    });
+
+    toggleDropdown();
+  }
 
   return (
     <div className="relative bg-navySecondary h-[5.6rem] px-6 py-2 flex items-center justify-between font-main">
@@ -38,10 +50,10 @@ function SuggestionBar() {
         </div>
         <div
           className={`absolute top-[5rem] w-[20rem] ${
-            showDropdown ? "opacity-100" : "opacity-0"
+            showDropdown ? "opacity-100" : "opacity-0 pointer-events-none"
           } transition-opacity ease-in-out duration-500`}
         >
-          <Dropdown options={sortingOpts} />
+          <Dropdown options={sorts} onClick={changeSorting} />
         </div>
       </div>
       <PurpleBtn>+ Add Feedback</PurpleBtn>
