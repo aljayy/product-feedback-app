@@ -29,11 +29,15 @@ function SuggestionBar() {
         <div
           className={`${
             showDropdown ? "rotate-180" : "rotate-0"
-          } ease-in-out duration-300`}
+          } ease-in-out duration-500`}
         >
           <img src={chevron} alt="Chevron Icon" />
         </div>
-        <div className="absolute top-[5rem] w-[20rem]">
+        <div
+          className={`absolute top-[5rem] w-[20rem] ${
+            showDropdown ? "opacity-100" : "opacity-0"
+          } transition-opacity ease-in-out duration-500`}
+        >
           <Dropdown options={sortingOpts} />
         </div>
       </div>
