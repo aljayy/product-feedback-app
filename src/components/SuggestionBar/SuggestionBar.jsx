@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import chevron from "../../assets/shared/chevronlight.svg";
+import PurpleBtn from "../UI/Buttons/PurpleBtn";
 
 function SuggestionBar() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -11,7 +12,7 @@ function SuggestionBar() {
   console.log(showDropdown);
 
   return (
-    <div className="bg-navySecondary h-[5.6rem] px-6 py-2 flex items-center">
+    <div className="bg-navySecondary h-[5.6rem] px-6 py-2 flex items-center justify-between font-main">
       <div className="text-white text-s-body flex gap-2 items-center">
         <p className="font-normal">
           Sort by :{" "}
@@ -27,6 +28,7 @@ function SuggestionBar() {
           <img src={chevron} alt="Chevron Icon" />
         </div>
       </div>
+      <PurpleBtn>+ Add Feedback</PurpleBtn>
     </div>
   );
 }
