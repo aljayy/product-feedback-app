@@ -3,19 +3,22 @@ import chevron from "../../assets/shared/chevronlight.svg";
 import PurpleBtn from "../UI/Buttons/PurpleBtn";
 import Dropdown from "../UI/Dropdown/Dropdown";
 
+const sortingOpts = [
+  { title: "Most Upvotes", selected: true },
+  { title: "Least Upvotes", selected: false },
+  { title: "Most Comments", selected: false },
+  { title: "Least Comments", selected: false },
+];
+
 function SuggestionBar() {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [sorts, setSorts] = useState(sortingOpts);
 
   function toggleDropdown() {
     setShowDropdown(!showDropdown);
   }
 
-  const sortingOpts = [
-    { title: "Most Upvotes", selected: true },
-    { title: "Least Upvotes", selected: false },
-    { title: "Most Comments", selected: false },
-    { title: "Least Comments", selected: false },
-  ];
+  const selectedSort = sorts.find((option) => option.selected);
 
   return (
     <div className="relative bg-navySecondary h-[5.6rem] px-6 py-2 flex items-center justify-between font-main">
@@ -23,7 +26,7 @@ function SuggestionBar() {
         <p className="font-normal">
           Sort by :{" "}
           <span className="font-bold" onClick={toggleDropdown}>
-            Most Upvotes
+            {selectedSort.title}
           </span>
         </p>
         <div
