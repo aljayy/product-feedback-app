@@ -1,6 +1,5 @@
 import React from "react";
 import hamburgerIcon from "../../assets/shared/mobile/icon-hamburger.svg";
-import closeIcon from "../../assets/shared/mobile/icon-close.svg";
 import gradient from "../../assets/suggestions/mobile/background-header.png";
 
 function MobileHeader() {
@@ -18,7 +17,7 @@ function MobileHeader() {
         <p className="text-white opacity-75 text-s-body">Feedback Board</p>
       </div>
       <div>
-        <img src={hamburgerIcon} />
+        <img src={hamburgerIcon} alt="Hamburger Menu Icon" />
       </div>
     </header>
   );
