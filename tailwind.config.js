@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     colors: {
       babyBlue: "#62BCFA",
+      black: "#000000",
       blue: "#4661E6",
       lightBlue: "#7C91F9",
       gradient: {
@@ -22,6 +23,7 @@ module.exports = {
       lightPurple: "#C75AF6",
       red: "#D73737",
       lightRed: "#E98888",
+      tagHover: "#CFD7FF",
       white: "#FFFFFF",
     },
     fontSize: {
@@ -89,6 +91,7 @@ module.exports = {
       l: "1440px",
     },
     spacing: {
+      0: "0",
       0.5: "0.2rem",
       1: "0.4rem",
       1.5: "0.6rem",
