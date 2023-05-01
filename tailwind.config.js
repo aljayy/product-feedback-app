@@ -14,6 +14,7 @@ module.exports = {
       },
       grey: "#F2F4FF",
       lightGrey: "#F7F8FD",
+      linkHover: "#8397F8",
       navy: "#3A4374",
       navySecondary: "#373F68",
       lightNavy: "#656EA3",
