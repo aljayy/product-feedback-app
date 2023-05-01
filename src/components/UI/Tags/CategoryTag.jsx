@@ -1,9 +1,13 @@
 import React from "react";
 
-function CategoryTag({ children }) {
+function CategoryTag({ title, selected }) {
   return (
-    <button className="bg-grey rounded-[1rem] h-7.5 pt-[0.5rem] pb-1.5 px-4 text-blue text-s-body">
-      {children}
+    <button
+      className={`${
+        selected ? "bg-blue text-white" : "bg-grey text-blue"
+      } rounded-[1rem] h-7.5 pt-[0.5rem] pb-1.5 px-4 text-s-body cursor-pointer hover:bg-tagHover`}
+    >
+      {title}
     </button>
   );
 }
