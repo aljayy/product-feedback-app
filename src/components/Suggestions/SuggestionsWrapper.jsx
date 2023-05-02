@@ -1,13 +1,8 @@
-import React, { useState } from "react";
-import initialData from "../../data.json";
+import { useSelector } from "react-redux";
 import SuggestionStatusCard from "../Cards/SuggestionStatusCard";
 
-let suggestionRequests = initialData.productRequests.filter(
-  (request) => request.status === "suggestion"
-);
-
 function SuggestionsWrapper() {
-  const [suggestions, setSuggestions] = useState(suggestionRequests);
+  const suggestions = useSelector((state) => state.suggestion.requests);
 
   return (
     <div className="pt-8 px-6 pb-[5.5rem] flex flex-col gap-y-4">
