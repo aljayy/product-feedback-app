@@ -1,15 +1,23 @@
-import React from "react";
-import upvoteIcon from "../../../assets/shared/icon-arrow-up.svg";
+import { useDispatch } from "react-redux";
+import unvotedIcon from "../../../assets/shared/icon-arrow-up.svg";
+import upvotedIcon from "../../../assets/shared/chevronlightup.svg";
+import { toggleUpvote } from "../../../store/suggestionSlice";
 
-function UpvoteTag({ upvoteCount }) {
+function UpvoteTag({ upvoteCount, upvoted, requestId }) {
+  const dispatch = useDispatch();
+  const icon = upvoted ? upvotedIcon : unvotedIcon;
+
   return (
-    <button className="bg-grey py-1.5 pl-4 pr-[1.3rem] rounded-[1rem] flex items-center gap-x-2.5">
+    <button
+      className={`${
+        upvoted ? "bg-blue text-white" : "bg-grey text-navy"
+      } py-1.5 pl-4 pr-[1.3rem] rounded-[1rem] flex items-center gap-x-2.5`}
+      onClick={() => dispatch(toggleUpvote(requestId))}
+    >
       <div>
-        <img src={upvoteIcon} alt="Upvote Icon" />
+        <img src={icon} alt="Upvote Icon" />
       </div>
-      <p className="text-s-body text-navy font-bold -tracking-[0.18px]">
-        {upvoteCount}
-      </p>
+      <p className="text-s-body font-bold -tracking-[0.18px]">{upvoteCount}</p>
     </button>
   );
 }
