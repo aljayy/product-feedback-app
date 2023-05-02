@@ -1,4 +1,3 @@
-import React from "react";
 import UpvoteTag from "../UI/Tags/UpvoteTag";
 import CategoryTag from "../UI/Tags/CategoryTag";
 import CommentCounter from "../UI/CommentCounter/CommentCounter";
@@ -16,7 +15,7 @@ function SuggestionStatusCard({ request }) {
         <CategoryTag title={request.category} />
       </div>
       <div className="row-start-2">
-        <UpvoteTag upvoteCount={request.upvotes} />
+        <UpvoteTag upvoteCount={request.upvotes.count} />
       </div>
       <div className="row-start-2 col-start-2 justify-self-end self-center">
         <CommentCounter
