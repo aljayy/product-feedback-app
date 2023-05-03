@@ -18,9 +18,20 @@ let initialSortingMethods = [
   { title: "Least Comments", selected: false },
 ];
 
+let initialCategories = [
+  { title: "All", selected: true },
+  { title: "UI", selected: false },
+  { title: "UX", selected: false },
+  { title: "Enhancement", selected: false },
+  { title: "Bug", selected: false },
+  { title: "Feature", selected: false },
+];
+
 const suggestionSlice = createSlice({
   name: "suggestion",
   initialState: {
+    categories: initialCategories,
+    allSuggestionRequests: initialSuggestionRequests,
     requests: initialSuggestionRequests,
     sortMethods: initialSortingMethods,
   },
@@ -86,8 +97,26 @@ const suggestionSlice = createSlice({
         else return (sort.selected = false);
       });
     },
+    changeSelectedCategory(state, action) {
+      let newCategoryTitle = action.payload;
+
+      if (newCategoryTitle === "All") {
+        state.requests = state.allSuggestionRequests;
+      } else {
+        state.requests = state.allSuggestionRequests.filter(
+          (request) => request.category === newCategoryTitle.toLowerCase()
+        );
+      }
+
+      state.categories.map((category) => {
+        if (category.title === newCategoryTitle)
+          return (category.selected = true);
+        else return (category.selected = false);
+      });
+    },
   },
 });
 
-export const { changeSort, toggleUpvote } = suggestionSlice.actions;
+export const { changeSort, changeSelectedCategory, toggleUpvote } =
+  suggestionSlice.actions;
 export default suggestionSlice;
