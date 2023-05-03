@@ -63,10 +63,22 @@ const suggestionSlice = createSlice({
           } else if (a.upvotes.count === b.upvotes.count) return 0;
           return -1;
         });
+        state.allSuggestionRequests.sort((a, b) => {
+          if (a.upvotes.count < b.upvotes.count) {
+            return 1;
+          } else if (a.upvotes.count === b.upvotes.count) return 0;
+          return -1;
+        });
       }
 
       if (selectedSort === "Least Upvotes") {
         state.requests.sort((a, b) => {
+          if (a.upvotes.count < b.upvotes.count) {
+            return -1;
+          } else if (a.upvotes.count === b.upvotes.count) return 0;
+          return 1;
+        });
+        state.allSuggestionRequests.sort((a, b) => {
           if (a.upvotes.count < b.upvotes.count) {
             return -1;
           } else if (a.upvotes.count === b.upvotes.count) return 0;
@@ -81,10 +93,22 @@ const suggestionSlice = createSlice({
           } else if (a.comments.length === b.comments.length) return 0;
           return -1;
         });
+        state.allSuggestionRequests.sort((a, b) => {
+          if (a.comments.length < b.comments.length) {
+            return 1;
+          } else if (a.comments.length === b.comments.length) return 0;
+          return -1;
+        });
       }
 
       if (selectedSort === "Least Comments") {
         state.requests.sort((a, b) => {
+          if (a.comments.length < b.comments.length) {
+            return -1;
+          } else if (a.comments.length === b.comments.length) return 0;
+          return 1;
+        });
+        state.allSuggestionRequests.sort((a, b) => {
           if (a.comments.length < b.comments.length) {
             return -1;
           } else if (a.comments.length === b.comments.length) return 0;
