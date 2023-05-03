@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
 import SuggestionStatusCard from "../Cards/SuggestionStatusCard";
+import EmptySuggestions from "./EmptySuggestions";
 
 function SuggestionsWrapper() {
   const suggestions = useSelector((state) => state.suggestions.requests);
 
   return (
     <div className="pt-8 px-6 pb-[5.5rem] flex flex-col gap-y-4">
-      {suggestions.map((suggestion) => {
-        return (
-          <SuggestionStatusCard key={suggestion.id} request={suggestion} />
-        );
-      })}
+      {suggestions.length > 0 &&
+        suggestions.map((suggestion) => {
+          return (
+            <SuggestionStatusCard key={suggestion.id} request={suggestion} />
+          );
+        })}
+      {suggestions.length < 1 && <EmptySuggestions />}
     </div>
   );
 }
