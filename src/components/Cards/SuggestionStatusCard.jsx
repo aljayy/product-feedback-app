@@ -22,9 +22,7 @@ function SuggestionStatusCard({ request }) {
         />
       </div>
       <div className="row-start-2 col-start-2 justify-self-end self-center">
-        <CommentCounter
-          count={request.comments ? request.comments.length : 0}
-        />
+        <CommentCounter count={request.comments.length} />
       </div>
     </div>
   );
