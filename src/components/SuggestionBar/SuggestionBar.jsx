@@ -1,18 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeSort } from "../../store/suggestionSlice";
 import chevron from "../../assets/shared/chevronlight.svg";
 import PurpleBtn from "../UI/Buttons/PurpleBtn";
 import Dropdown from "../UI/Dropdown/Dropdown";
 
-const sortingOpts = [
-  { title: "Most Upvotes", selected: true },
-  { title: "Least Upvotes", selected: false },
-  { title: "Most Comments", selected: false },
-  { title: "Least Comments", selected: false },
-];
-
 function SuggestionBar() {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [sorts, setSorts] = useState(sortingOpts);
+  const dispatch = useDispatch();
+  const sorts = useSelector((state) => state.suggestion.sortMethods);
 
   const selectedSort = sorts.find((option) => option.selected);
 
@@ -21,13 +17,7 @@ function SuggestionBar() {
   }
 
   function changeSorting(sortingTitle) {
-    setSorts((prevSorts) => {
-      return prevSorts.map((option) => {
-        if (option.title === sortingTitle) {
-          return { ...option, selected: true };
-        } else return { ...option, selected: false };
-      });
-    });
+    dispatch(changeSort(sortingTitle));
 
     toggleDropdown();
   }
@@ -51,7 +41,7 @@ function SuggestionBar() {
         <div
           className={`absolute top-[5rem] w-[20rem] ${
             showDropdown ? "opacity-100" : "opacity-0 pointer-events-none"
-          } transition-opacity ease-in-out duration-500`}
+          } transition-opacity ease-in-out duration-300`}
         >
           <Dropdown options={sorts} onClick={changeSorting} />
         </div>
