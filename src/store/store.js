@@ -3,7 +3,7 @@ import suggestionSlice from "./suggestionSlice";
 
 const store = configureStore({
   reducer: {
-    suggestion: suggestionSlice.reducer,
+    suggestions: suggestionSlice.reducer,
   },
 });
 

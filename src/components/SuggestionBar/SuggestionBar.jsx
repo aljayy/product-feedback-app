@@ -8,7 +8,7 @@ import Dropdown from "../UI/Dropdown/Dropdown";
 function SuggestionBar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const dispatch = useDispatch();
-  const sorts = useSelector((state) => state.suggestion.sortMethods);
+  const sorts = useSelector((state) => state.suggestions.sortMethods);
 
   const selectedSort = sorts.find((option) => option.selected);
 
