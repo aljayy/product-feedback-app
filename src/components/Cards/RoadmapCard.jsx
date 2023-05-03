@@ -9,7 +9,7 @@ const initialRoadmapData = [
 
 function RoadmapCard() {
   return (
-    <div className="w-full bg-white rounded-[1rem] mt-6 px-6 pb-6 pt-[1.9rem]">
+    <div className="w-full bg-white rounded-[1rem] mt-6 px-6 pb-6 pt-[1.9rem] m:mt-0">
       <div className="flex justify-between items-center">
         <h2 className="text-m-header text-navy">Roadmap</h2>
         <a
