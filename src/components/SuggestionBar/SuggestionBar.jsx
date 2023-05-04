@@ -27,7 +27,7 @@ function SuggestionBar() {
   }
 
   return (
-    <div className="relative bg-navySecondary h-[5.6rem] px-6 py-2 flex items-center justify-between font-main m:h-[7.2rem] m:rounded-[1rem] m:grid m:grid-cols-[auto_1fr_1fr] m:gap-9.5 m:py-3.5 m:pr-3">
+    <div className="relative bg-navySecondary h-[5.6rem] px-6 py-2 flex items-center justify-between font-main m:h-[7.2rem] m:rounded-[1rem] m:grid m:grid-cols-[auto_1fr_1fr] m:gap-9.5 m:py-3.5 m:pr-3 l:pr-4">
       <div className="hidden m:flex items-center gap-4">
         <div>
           <img src={lightBulb} alt="Light Bulb Icon" />
