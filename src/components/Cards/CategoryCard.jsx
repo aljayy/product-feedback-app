@@ -7,7 +7,7 @@ function CategoryCard() {
   const dispatch = useDispatch();
 
   return (
-    <div className="bg-white w-full rounded-[1rem] pt-6 pl-6 pr-[1.8rem] pb-9 flex flex-wrap gap-x-[0.8rem] gap-y-[1.4rem]">
+    <div className="bg-white w-full rounded-[1rem] pt-6 pl-6 pr-[1.8rem] pb-9 flex flex-wrap gap-x-[0.8rem] gap-y-[1.4rem] l:p-6">
       {categories.map((category, index) => {
         return (
           <CategoryTag
