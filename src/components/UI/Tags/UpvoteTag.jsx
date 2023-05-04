@@ -11,7 +11,7 @@ function UpvoteTag({ upvoteCount, upvoted, requestId }) {
     <button
       className={`${
         upvoted ? "bg-blue text-white" : "bg-grey text-navy"
-      } py-1.5 pl-4 pr-[1.3rem] rounded-[1rem] flex items-center gap-x-2.5`}
+      } py-1.5 pl-4 pr-[1.3rem] rounded-[1rem] flex items-center gap-x-2.5 m:flex-col m:gap-y-2 m:pt-3.5 m:px-[0.9rem] m:pb-2`}
       onClick={() => dispatch(toggleUpvote(requestId))}
     >
       <div>
