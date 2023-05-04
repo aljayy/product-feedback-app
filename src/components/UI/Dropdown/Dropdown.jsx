@@ -3,16 +3,16 @@ import check from "../../../assets/shared/icon-check.svg";
 
 function Dropdown({ options, onClick }) {
   return (
-    <div className="bg-white rounded-[1rem] w-full shadow-md">
+    <div className="bg-white rounded-[1rem] w-full shadow-md l:shadow-xl">
       {options.map((option, index) => {
         return (
           <div
-            className="flex items-center justify-between px-4 py-3 border-t border-navySecondary/[.15] first:border-t-0"
+            className="flex items-center justify-between px-4 py-3 border-t border-navySecondary/[.15] first:border-t-0 l:px-6"
             onClick={() => onClick(option.title)}
             key={index}
           >
             <p
-              className={`text-navySecondary text-s-body font-normal hover:text-purple`}
+              className={`text-navySecondary text-s-body font-normal hover:text-purple l:text-l-body`}
             >
               {option.title}
             </p>

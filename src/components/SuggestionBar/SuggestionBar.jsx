@@ -51,7 +51,7 @@ function SuggestionBar() {
         <div
           className={`absolute top-[5rem] w-[20rem] ${
             showDropdown ? "opacity-100" : "opacity-0 pointer-events-none"
-          } transition-opacity ease-in-out duration-300`}
+          } transition-opacity ease-in-out duration-300 l:w-[25.5rem] l:top-[8.8rem]`}
         >
           <Dropdown options={sorts} onClick={changeSorting} />
         </div>
