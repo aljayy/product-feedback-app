@@ -34,12 +34,12 @@ function SuggestionBar() {
         </div>
         <p className="text-m-header text-white">{`${requestCount} Suggestions`}</p>
       </div>
-      <div className="text-white text-s-body flex gap-2 items-center m:col-start-2 m:text-s-header m:gap-[0.9rem]">
+      <div
+        className="text-white text-s-body flex gap-2 items-center m:col-start-2 m:text-s-header m:gap-[0.9rem] cursor-pointer"
+        onClick={toggleDropdown}
+      >
         <p className="font-normal">
-          Sort by :{" "}
-          <span className="font-bold" onClick={toggleDropdown}>
-            {selectedSort.title}
-          </span>
+          Sort by : <span className="font-bold">{selectedSort.title}</span>
         </p>
         <div
           className={`${
