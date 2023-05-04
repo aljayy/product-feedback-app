@@ -3,7 +3,7 @@ import PurpleBtn from "../UI/Buttons/PurpleBtn";
 
 function EmptySuggestions() {
   return (
-    <div className="bg-white rounded-[1rem] py-[7.6rem] px-6 flex flex-col items-center m:px-[14rem] m:py-[11rem]">
+    <div className="bg-white rounded-[1rem] py-[7.6rem] px-6 flex flex-col items-center m:px-[14rem] m:py-[11rem] l:px-[20rem]">
       <div className="m:h-[13.6rem] m:w-full">
         <img src={empty} alt="Detective Icon" className="m:mx-auto m:h-full" />
       </div>
