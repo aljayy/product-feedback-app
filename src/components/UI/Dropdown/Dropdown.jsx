@@ -12,9 +12,7 @@ function Dropdown({ options, onClick }) {
             key={index}
           >
             <p
-              className={`${
-                option.selected ? "text-purple" : "text-navySecondary"
-              } text-s-body font-normal`}
+              className={`text-navySecondary text-s-body font-normal hover:text-purple`}
             >
               {option.title}
             </p>
