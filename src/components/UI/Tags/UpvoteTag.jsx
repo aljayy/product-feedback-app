@@ -7,8 +7,8 @@ function UpvoteTag({ upvoteCount, upvoted, requestId, flex }) {
   const dispatch = useDispatch();
   const icon = upvoted ? upvotedIcon : unvotedIcon;
   const display = flex
-    ? "m:flex-row gap-x-[0.95rem] py-1.5 pl-4 pr-4"
-    : "m:flex-col gap-y-2 pt-3.5 px-[1.1rem] pb-2";
+    ? "m:flex-row m:gap-x-[0.95rem] m:py-1.5 m:pl-4 m:pr-4 l:py-[1.1rem]"
+    : "m:flex-col m:gap-y-2 m:pt-3.5 m:px-[1.1rem] m:pb-2";
 
   return (
     <button
