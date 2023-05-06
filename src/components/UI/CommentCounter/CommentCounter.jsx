@@ -11,7 +11,9 @@ function CommentCounter({ count, small }) {
       <div>
         <img src={commentIcon} alt="Comment Icon" />
       </div>
-      <p className={`text-s-body font-bold -tracking-[0.18px] ${weight}`}>
+      <p
+        className={`text-s-body font-bold -tracking-[0.18px] ${weight} l:text-l-body l:font-bold l:-tracking-[0.22px]`}
+      >
         {count}
       </p>
     </div>
