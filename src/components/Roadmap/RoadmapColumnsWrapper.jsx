@@ -7,22 +7,22 @@ function RoadmapWrapper() {
   return (
     <div className="grid grid-cols-[100vw_100vw_100vw] relative -left-[100vw]">
       <RoadmapColumn
-        requests={requests.planned}
+        requests={requests.planned.requests}
         label={"Planned"}
         desc={"Ideas prioritized for research"}
-        colorway={"orange"}
+        colorway={requests.planned.colorway}
       />
       <RoadmapColumn
-        requests={requests.inProgress}
+        requests={requests.inProgress.requests}
         label={"In-Progress"}
         desc={"Currently being developed"}
-        colorway={"purple"}
+        colorway={requests.inProgress.colorway}
       />
       <RoadmapColumn
-        requests={requests.live}
+        requests={requests.live.requests}
         label={"Live"}
         desc={"Released features"}
-        colorway={"babyBlue"}
+        colorway={requests.live.colorway}
       />
     </div>
   );
