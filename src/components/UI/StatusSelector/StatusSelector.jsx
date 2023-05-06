@@ -12,7 +12,7 @@ function StatusSelector() {
   }
 
   return (
-    <div className="h-[6rem] w-full border-b-[1px] border-[#8C92B3]/[0.25] flex">
+    <div className="h-[6rem] w-full border-b-[1px] border-[#8C92B3]/[0.25] flex m:hidden">
       <div
         className="w-1/3 flex justify-center items-center relative"
         onClick={() => changeColumn(0, "planned")}
