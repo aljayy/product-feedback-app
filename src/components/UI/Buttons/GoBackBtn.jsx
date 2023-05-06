@@ -12,7 +12,7 @@ function GoBackBtn({ light }) {
       onClick={() => {
         navigate(-1);
       }}
-      className="flex gap-x-4 items-center"
+      className="flex gap-x-4 items-center hover:underline decoration-white cursor-pointer"
     >
       <div>
         <img src={icon} alt="Navigate Icon" />
