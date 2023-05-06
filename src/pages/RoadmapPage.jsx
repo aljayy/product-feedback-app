@@ -4,7 +4,7 @@ import RoadmapColumnsWrapper from "../components/Roadmap/RoadmapColumnsWrapper";
 
 function RoadmapPage() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden m:pt-[5.6rem] m:px-10">
       <RoadmapHeader />
       <StatusSelector />
       <RoadmapColumnsWrapper />
