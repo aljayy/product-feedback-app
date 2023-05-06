@@ -7,7 +7,7 @@ function RoadmapWrapper() {
 
   return (
     <div
-      className={`grid grid-cols-[100vw_100vw_100vw] relative -left-[${position}]`}
+      className={`grid grid-cols-[100vw_100vw_100vw] relative -left-[${position}] m:grid-cols-3 m:left-0 m:mt-8 m:gap-x-2.5`}
     >
       <RoadmapColumn
         requests={requests.planned.requests}
