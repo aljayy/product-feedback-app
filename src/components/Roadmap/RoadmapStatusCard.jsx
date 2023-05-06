@@ -11,18 +11,18 @@ function RoadmapStatusCard({ request, colorway, label }) {
 
   return (
     <div
-      className={`w-full bg-white px-6 pb-6 pt-4 mb-4 border-t-[0.6rem] ${borderColor} rounded-t-[0.5rem] rounded-b-[1rem]`}
+      className={`w-full bg-white px-6 pb-6 pt-4 mb-4 border-t-[0.6rem] last:mb-0 ${borderColor} rounded-t-[0.5rem] rounded-b-[1rem] m:rounded-[0.5rem] m:px-5 m:pt-5`}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 m:gap-4">
         <div className={`h-2 w-2 bg-${colorway} rounded-full`} />
         <p className="text-s-body font-normal text-lightNavySecondary">
           {label}
         </p>
       </div>
-      <p className="text-s-body text-navy font-bold -tracking-[0.18px] mt-4 mb-[0.9rem]">
+      <p className="text-s-body text-navy font-bold -tracking-[0.18px] mt-4 mb-[0.9rem] m:mt-3.5">
         {request.title}
       </p>
-      <p className="text-s-body font-normal text-lightNavySecondary mb-2">
+      <p className="text-s-body font-normal text-lightNavySecondary mb-2 m:mb-6">
         {request.description}
       </p>
       <CategoryTag title={request.category} />
@@ -31,8 +31,9 @@ function RoadmapStatusCard({ request, colorway, label }) {
           upvoteCount={request.upvotes.count}
           upvoted={request.upvotes.userUpvoted}
           requestId={request.id}
+          flex={true}
         />
-        <CommentCounter count={request.comments.length} />
+        <CommentCounter count={request.comments.length} small={true} />
       </div>
     </div>
   );
