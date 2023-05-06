@@ -32,6 +32,7 @@ function RoadmapStatusCard({ request, colorway, label }) {
           upvoted={request.upvotes.userUpvoted}
           requestId={request.id}
           flex={true}
+          roadmap={true}
         />
         <CommentCounter count={request.comments.length} small={true} />
       </div>
