@@ -46,8 +46,31 @@ const roadmapSlice = createSlice({
         else state.requests[key].mobileActive = false;
       }
     },
+    toggleRoadmapUpvote(state, action) {
+      console.log(action.payload);
+      let id = action.payload;
+
+      let request;
+
+      for (const key in state.requests) {
+        state.requests[key].requests.forEach((curr) => {
+          if (curr.id === id) {
+            request = curr;
+            return;
+          }
+        });
+      }
+
+      if (!request.upvotes.userUpvoted) {
+        request.upvotes.count++;
+        request.upvotes.userUpvoted = true;
+      } else {
+        request.upvotes.count--;
+        request.upvotes.userUpvoted = false;
+      }
+    },
   },
 });
 
-export const { changeActiveColumn } = roadmapSlice.actions;
+export const { changeActiveColumn, toggleRoadmapUpvote } = roadmapSlice.actions;
 export default roadmapSlice;
