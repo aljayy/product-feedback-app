@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import RoadmapStatusLabel from "../UI/Labels/RoadmapStatusLabel";
 
 const initialRoadmapData = [
@@ -12,12 +12,12 @@ function RoadmapCard() {
     <div className="w-full bg-white rounded-[1rem] mt-6 px-6 pb-6 pt-[1.9rem] m:mt-0">
       <div className="flex justify-between items-center">
         <h2 className="text-m-header text-navy">Roadmap</h2>
-        <a
-          href="#"
+        <Link
+          to="/roadmap"
           className="text-s-body text-blue underline cursor-pointer hover:text-linkHover"
         >
           View
-        </a>
+        </Link>
       </div>
       <div className="mt-6 flex flex-col gap-y-2">
         {initialRoadmapData.map((status) => {
