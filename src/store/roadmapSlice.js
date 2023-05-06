@@ -31,7 +31,23 @@ initialData.productRequests.forEach((request) => {
 
 const roadmapSlice = createSlice({
   name: "roadmap",
-  initialState: { requests: initialRoadmapRequests, columnPositioning: 100 },
+  initialState: {
+    requests: initialRoadmapRequests,
+    columnPosition: "100vw",
+  },
+  reducers: {
+    changeActiveColumn(state, action) {
+      let newPosition = action.payload.newPosition;
+      let newColumn = action.payload.columnName;
+      state.columnPosition = newPosition + "vw";
+
+      for (const key in state.requests) {
+        if (key === newColumn) state.requests[key].mobileActive = true;
+        else state.requests[key].mobileActive = false;
+      }
+    },
+  },
 });
 
+export const { changeActiveColumn } = roadmapSlice.actions;
 export default roadmapSlice;
