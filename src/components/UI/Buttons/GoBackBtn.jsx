@@ -17,7 +17,11 @@ function GoBackBtn({ light }) {
       <div>
         <img src={icon} alt="Navigate Icon" />
       </div>
-      <p className="text-s-body text-white font-bold m:text-s-header m:tracking-normal">
+      <p
+        className={`text-s-body ${
+          light ? "text-white" : "text-lightNavySecondary"
+        } font-bold m:text-s-header m:tracking-normal`}
+      >
         Go Back
       </p>
     </button>
