@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import SuggestionStatusCard from "../Cards/SuggestionStatusCard";
+import SuggestionStatusCard from "./SuggestionStatusCard";
 import EmptySuggestions from "./EmptySuggestions";
 
 function SuggestionsWrapper() {
