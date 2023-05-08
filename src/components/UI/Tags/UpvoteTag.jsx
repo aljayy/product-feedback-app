@@ -22,7 +22,10 @@ function UpvoteTag({ upvoteCount, upvoted, requestId, flex, roadmap }) {
       className={`${
         upvoted ? "bg-blue text-white" : "bg-grey text-navy hover:bg-tagHover"
       } py-1.5 pl-4 pr-[1.3rem] rounded-[1rem] flex items-center gap-x-2.5 ${display}`}
-      onClick={() => toggleUpvoteHandler(requestId)}
+      onClick={(e) => {
+        e.preventDefault();
+        toggleUpvoteHandler(requestId);
+      }}
     >
       <div>
         <img src={icon} alt="Upvote Icon" />
