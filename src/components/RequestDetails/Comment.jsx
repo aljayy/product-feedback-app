@@ -23,7 +23,7 @@ function Comment({ comment }) {
   }, [replyRef]);
 
   return (
-    <div className="border-b-[1px] border-b-[#8C92B3]/[0.25] pb-6 last:border-b-0">
+    <div className="border-b-[1px] border-b-[#8C92B3]/[0.25] pb-6 last:border-b-0 last:pb-0">
       <div className="grid grid-cols-[auto_1fr_1fr] grid-rows-[auto_1fr]">
         <div className="h-10 w-10 rounded-full overflow-hidden">
           <img
