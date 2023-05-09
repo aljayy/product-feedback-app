@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import RequestDetailsActions from "../components/RequestDetails/RequestDetailsActions";
 import SuggestionStatusCard from "../components/Suggestions/SuggestionStatusCard";
 import CommentsWrapper from "../components/RequestDetails/CommentsWrapper";
+import AddComment from "../components/RequestDetails/AddComment";
 
 function RequestDetailsPage() {
   const { board, id } = useParams();
@@ -29,6 +30,7 @@ function RequestDetailsPage() {
       <RequestDetailsActions />
       <SuggestionStatusCard request={request} />
       <CommentsWrapper comments={request.comments} />
+      <AddComment />
     </div>
   );
 }
