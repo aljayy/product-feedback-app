@@ -21,6 +21,7 @@ function SuggestionStatusCard({ request }) {
             upvoteCount={request.upvotes.count}
             upvoted={request.upvotes.userUpvoted}
             requestId={request.id}
+            roadmap={request.status !== "suggestion" ? true : false}
           />
         </div>
         <div className="row-start-2 col-start-2 justify-self-end self-center m:row-start-1 m:col-start-3">
