@@ -7,11 +7,11 @@ function CommentsWrapper({ comments }) {
   ]).length;
 
   return (
-    <div className="w-full bg-white rounded-[1rem] p-6">
-      <h2 className="text-m-header text-navy mb-6">{`${commentsCount} ${
+    <div className="w-full bg-white rounded-[1rem] p-6 m:px-8 m:pb-8">
+      <h2 className="text-m-header text-navy mb-6 m:mb-7">{`${commentsCount} ${
         commentsCount === 1 ? "comment" : "comments"
       }`}</h2>
-      <div className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-6 m:gap-y-8">
         {comments.map((comment) => {
           return <Comment comment={comment} key={comment.id} />;
         })}
