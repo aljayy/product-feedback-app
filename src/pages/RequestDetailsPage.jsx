@@ -26,7 +26,7 @@ function RequestDetailsPage() {
   });
 
   return (
-    <div className="px-6 pt-6 pb-[8.8rem] flex flex-col gap-6">
+    <div className="px-6 pt-6 pb-[8.8rem] flex flex-col gap-6 m:pt-[5.6rem] m:px-10 m:pb-[12rem]">
       <RequestDetailsActions />
       <SuggestionStatusCard request={request} />
       <CommentsWrapper comments={request.comments} />
