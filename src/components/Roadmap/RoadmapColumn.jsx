@@ -8,16 +8,18 @@ function RoadmapColumn({ requests, label, desc, colorway }) {
       <p className="text-s-body font-normal text-lightNavySecondary mt-[0.4rem] mb-6 m:text-s-header m:tracking-normal m:font-normal l:text-l-body l:mb-8">
         {desc}
       </p>
-      {requests.map((request) => {
-        return (
-          <RoadmapStatusCard
-            request={request}
-            key={request.id}
-            colorway={colorway}
-            label={label}
-          />
-        );
-      })}
+      <div className="flex flex-col gap-4 l:gap-6">
+        {requests.map((request) => {
+          return (
+            <RoadmapStatusCard
+              request={request}
+              key={request.id}
+              colorway={colorway}
+              label={label}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
