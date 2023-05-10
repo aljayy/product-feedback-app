@@ -20,9 +20,9 @@ function RoadmapCard() {
         </Link>
       </div>
       <div className="mt-6 flex flex-col gap-y-2">
-        {initialRoadmapData.map((status) => {
+        {initialRoadmapData.map((status, index) => {
           return (
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between" key={index}>
               <RoadmapStatusLabel
                 title={status.title}
                 iconColor={status.iconColor}
