@@ -12,7 +12,7 @@ function RoadmapStatusCard({ request, colorway, label }) {
   return (
     <Link to={`/request-discussion/roadmap/${request.id}`}>
       <div
-        className={`w-full bg-white px-6 pb-6 pt-4 mb-4 border-t-[0.6rem] last:mb-0 ${borderColor} rounded-t-[0.5rem] rounded-b-[1rem] m:rounded-[0.5rem] m:px-5 m:pt-5 l:mb-6 l:p-8 l:pt-[2.5rem] cursor-pointer group`}
+        className={`w-full bg-white px-6 pb-6 pt-4 border-t-[0.6rem] ${borderColor} rounded-t-[0.5rem] rounded-b-[1rem] m:rounded-[0.5rem] m:px-5 m:pt-5 l:p-8 l:pt-[2.5rem] cursor-pointer group`}
       >
         <div className="flex items-center gap-x-2 m:gap-x-4">
           <div className={`h-2 w-2 bg-${colorway} rounded-full`} />
