@@ -4,6 +4,11 @@ import CategoryTag from "../UI/Tags/CategoryTag";
 import CommentCounter from "../UI/CommentCounter/CommentCounter";
 
 function SuggestionStatusCard({ request }) {
+  const commentsCount = request.comments.flatMap((comment) => [
+    comment,
+    ...(comment.replies || []),
+  ]).length;
+
   return (
     <Link to={`/request-discussion/suggestions/${request.id}`}>
       <div className="bg-white rounded-[1rem] p-6 grid grid-rows-[1fr_minmax(32px)] grid-cols-2 gap-y-4 m:py-7 m:px-8 m:grid-rows-none m:grid-cols-[auto_1fr_auto] cursor-pointer">
@@ -25,7 +30,7 @@ function SuggestionStatusCard({ request }) {
           />
         </div>
         <div className="row-start-2 col-start-2 justify-self-end self-center m:row-start-1 m:col-start-3">
-          <CommentCounter count={request.comments.length} />
+          <CommentCounter count={commentsCount} />
         </div>
       </div>
     </Link>
