@@ -4,7 +4,16 @@ const regex = /[^/]*$/;
 function Comment({ comment }) {
   let fileName = comment.user.image.match(regex)[0];
   const [barHeight, setBarHeight] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const replyRef = useRef();
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const reply = replyRef.current;
@@ -16,11 +25,12 @@ function Comment({ comment }) {
           height += Number(reply.children[1].children[i].clientHeight);
         }
       }
-      height += 24 + 20;
+      let isMobile = window.innerWidth > 768 ? 32 : 24;
+      height += isMobile + 20;
     }
 
     setBarHeight(height);
-  }, [replyRef]);
+  }, [windowWidth]);
 
   return (
     <div className="border-b-[1px] border-b-[#8C92B3]/[0.25] pb-6 last:border-b-0 last:pb-0 m:pb-8">
@@ -61,7 +71,7 @@ function Comment({ comment }) {
             className={`w-[1px] bg-[#8C92B3]/[0.25]`}
             style={{ height: `${barHeight}px` }}
           ></div>
-          <div className="flex flex-col gap-y-6 m:gap-y-[1.7rem]">
+          <div className="flex flex-col gap-y-6 m:gap-y-[1.7rem] l:gap-y-8">
             {comment.replies.map((reply) => {
               let fileName = reply.user.image.match(regex)[0];
 
