@@ -25,7 +25,7 @@ function Comment({ comment }) {
           height += Number(reply.children[1].children[i].clientHeight);
         }
       }
-      let isMobile = window.innerWidth > 768 ? 32 : 24;
+      let isMobile = windowWidth > 768 ? 32 : 24;
       height += isMobile + 20;
     }
 
