@@ -1,7 +1,7 @@
 import Comment from "./Comment";
 
-function CommentsWrapper({ comments }) {
-  const commentsCount = comments.flatMap((comment) => [
+function CommentsWrapper({ request }) {
+  const commentsCount = request.comments.flatMap((comment) => [
     comment,
     ...(comment.replies || []),
   ]).length;
@@ -12,8 +12,10 @@ function CommentsWrapper({ comments }) {
         commentsCount === 1 ? "Comment" : "Comments"
       }`}</h2>
       <div className="flex flex-col gap-y-6 m:gap-y-8">
-        {comments.map((comment) => {
-          return <Comment comment={comment} key={comment.id} />;
+        {request.comments.map((comment) => {
+          return (
+            <Comment request={request} comment={comment} key={comment.id} />
+          );
         })}
       </div>
     </div>
