@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import AddReply from "./AddReply";
 const regex = /[^/]*$/;
 
-function ReplyComment({
-  reply,
-  requestId,
-  commentId,
-  roadmap,
-  replyingTo,
-  toggleVisibility,
-}) {
+function ReplyComment({ reply, requestId, commentId, roadmap, replyingTo }) {
   let fileName = reply.user.image.match(regex)[0];
   const [showReply, setShowReply] = useState(false);
 
@@ -50,7 +43,7 @@ function ReplyComment({
           commentId={commentId}
           roadmap={roadmap}
           replyingTo={replyingTo}
-          toggleVisibility={toggleVisibility}
+          toggleVisibility={setShowReply}
         />
       )}
     </div>
