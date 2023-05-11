@@ -80,6 +80,7 @@ function Comment({ comment, request }) {
             commentId={comment.id}
             roadmap={request.status !== "suggestion" ? true : false}
             replyingTo={comment.user.username}
+            toggleVisibility={setShowReply}
             user={user}
           />
         )}
@@ -101,6 +102,7 @@ function Comment({ comment, request }) {
                   roadmap={request.status !== "suggestion" ? true : false}
                   replyingTo={reply.user.username}
                   user={user}
+                  toggleVisibility={setShowReply}
                 />
               );
             })}
