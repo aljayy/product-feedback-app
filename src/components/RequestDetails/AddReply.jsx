@@ -16,6 +16,8 @@ function AddReply({
   const user = useSelector((state) => state.general.user);
 
   function addReplyHandler() {
+    if (replyRef.current.value.length < 1) return;
+
     if (roadmap) {
       dispatch(
         addRoadmapReply({
