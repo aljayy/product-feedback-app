@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import initialData from "../data.json";
 
 let initialRoadmapRequests = {
@@ -69,8 +69,47 @@ const roadmapSlice = createSlice({
         request.upvotes.userUpvoted = false;
       }
     },
+    addRoadmapReply(state, action) {
+      let reply = action.payload.reply;
+      let requestId = action.payload.requestId;
+      let commentId = action.payload.commentId;
+      let replyingTo = action.payload.replyingTo;
+      let user = action.payload.user;
+
+      let comment;
+
+      for (const key in state.requests) {
+        let requests = state.requests[key].requests;
+        for (let i = 0; i < requests.length; i++) {
+          if (requests[i].id === requestId) {
+            for (let j = 0; j < requests[i].comments.length; j++) {
+              if (requests[i].comments[j].id === commentId) {
+                comment = requests[i].comments[j];
+              }
+            }
+          }
+        }
+      }
+
+      if (comment.replies) {
+        comment.replies.push({
+          content: reply,
+          replyingTo: replyingTo,
+          user: user,
+        });
+      } else {
+        comment.replies = [
+          {
+            content: reply,
+            replyingTo: replyingTo,
+            user: user,
+          },
+        ];
+      }
+    },
   },
 });
 
-export const { changeActiveColumn, toggleRoadmapUpvote } = roadmapSlice.actions;
+export const { changeActiveColumn, toggleRoadmapUpvote, addRoadmapReply } =
+  roadmapSlice.actions;
 export default roadmapSlice;

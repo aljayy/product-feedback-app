@@ -138,9 +138,40 @@ const suggestionSlice = createSlice({
         else return (category.selected = false);
       });
     },
+    addSuggestionReply(state, action) {
+      let reply = action.payload.reply;
+      let requestId = action.payload.requestId;
+      let commentId = action.payload.commentId;
+      let replyingTo = action.payload.replyingTo;
+      let user = action.payload.user;
+
+      let comment = state.requests
+        .find((request) => request.id === requestId)
+        .comments.find((comment) => comment.id === commentId);
+
+      if (comment.replies) {
+        comment.replies.push({
+          content: reply,
+          replyingTo: replyingTo,
+          user: user,
+        });
+      } else {
+        comment.replies = [
+          {
+            content: reply,
+            replyingTo: replyingTo,
+            user: user,
+          },
+        ];
+      }
+    },
   },
 });
 
-export const { changeSort, changeSelectedCategory, toggleUpvote } =
-  suggestionSlice.actions;
+export const {
+  changeSort,
+  changeSelectedCategory,
+  toggleUpvote,
+  addSuggestionReply,
+} = suggestionSlice.actions;
 export default suggestionSlice;
