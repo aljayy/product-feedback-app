@@ -30,7 +30,7 @@ function RequestDetailsPage() {
       <RequestDetailsActions />
       <SuggestionStatusCard request={request} />
       <CommentsWrapper request={request} />
-      <AddComment />
+      <AddComment request={request} />
     </div>
   );
 }
