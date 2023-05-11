@@ -69,6 +69,31 @@ const roadmapSlice = createSlice({
         request.upvotes.userUpvoted = false;
       }
     },
+    addRoadmapComment(state, action) {
+      let comment = action.payload.comment;
+      let requestId = action.payload.requestId;
+      let user = action.payload.user;
+      let assignedId = action.payload.newId;
+
+      let request;
+
+      for (const key in state.requests) {
+        let requests = state.requests[key].requests;
+        for (let i = 0; i < requests.length; i++) {
+          if (requests[i].id === requestId) request = requests[i];
+        }
+      }
+
+      if (request.comments) {
+        request.comments.push({
+          id: assignedId,
+          content: comment,
+          user: user,
+        });
+      } else {
+        request.comments = [{ id: assignedId, content: comment, user: user }];
+      }
+    },
     addRoadmapReply(state, action) {
       let reply = action.payload.reply;
       let requestId = action.payload.requestId;
@@ -110,6 +135,10 @@ const roadmapSlice = createSlice({
   },
 });
 
-export const { changeActiveColumn, toggleRoadmapUpvote, addRoadmapReply } =
-  roadmapSlice.actions;
+export const {
+  changeActiveColumn,
+  toggleRoadmapUpvote,
+  addRoadmapComment,
+  addRoadmapReply,
+} = roadmapSlice.actions;
 export default roadmapSlice;

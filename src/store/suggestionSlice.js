@@ -138,6 +138,24 @@ const suggestionSlice = createSlice({
         else return (category.selected = false);
       });
     },
+    addSuggestionComment(state, action) {
+      let comment = action.payload.comment;
+      let requestId = action.payload.requestId;
+      let user = action.payload.user;
+      let assignedId = action.payload.newId;
+
+      let request = state.requests.find((request) => request.id === requestId);
+
+      if (request.comments) {
+        request.comments.push({
+          id: assignedId,
+          content: comment,
+          user: user,
+        });
+      } else {
+        request.comments = [{ id: assignedId, content: comment, user: user }];
+      }
+    },
     addSuggestionReply(state, action) {
       let reply = action.payload.reply;
       let requestId = action.payload.requestId;
@@ -172,6 +190,7 @@ export const {
   changeSort,
   changeSelectedCategory,
   toggleUpvote,
+  addSuggestionComment,
   addSuggestionReply,
 } = suggestionSlice.actions;
 export default suggestionSlice;
