@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import AddReply from "./AddReply";
 import ReplyComment from "./ReplyComment";
 const regex = /[^/]*$/;
 
-function Comment({ comment }) {
+function Comment({ comment, request }) {
   const [barHeight, setBarHeight] = useState(0);
   const [showReply, setShowReply] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const user = useSelector((state) => state.general.user);
   const replyRef = useRef();
   let fileName = comment.user.image.match(regex)[0];
 
@@ -72,7 +74,15 @@ function Comment({ comment }) {
             {comment.content}
           </p>
         </div>
-        {showReply && <AddReply />}
+        {showReply && (
+          <AddReply
+            requestId={request.id}
+            commentId={comment.id}
+            roadmap={request.status !== "suggestion" ? true : false}
+            replyingTo={comment.user.username}
+            user={user}
+          />
+        )}
       </div>
       {comment.replies && (
         <div ref={replyRef} className="mt-6 flex gap-x-6 m:ml-5 m:mt-8">
@@ -82,7 +92,17 @@ function Comment({ comment }) {
           ></div>
           <div className="flex flex-col gap-y-6 m:gap-y-[1.7rem] l:gap-y-8">
             {comment.replies.map((reply, index) => {
-              return <ReplyComment reply={reply} key={index} />;
+              return (
+                <ReplyComment
+                  key={index}
+                  reply={reply}
+                  requestId={request.id}
+                  commentId={comment.id}
+                  roadmap={request.status !== "suggestion" ? true : false}
+                  replyingTo={reply.user.username}
+                  user={user}
+                />
+              );
             })}
           </div>
         </div>
