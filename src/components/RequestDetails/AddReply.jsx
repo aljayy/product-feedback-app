@@ -33,13 +33,13 @@ function AddReply({ requestId, commentId, roadmap, replyingTo }) {
   }
 
   return (
-    <div className="col-start-1 col-span-3 row-start-3 row-end-3 mt-4 flex flex-col items-end">
+    <div className="col-start-1 col-span-3 row-start-3 row-end-3 mt-4 flex flex-col items-end m:col-start-2 m:ml-8 m:flex-row m:items-start m:gap-x-4">
       <textarea
         className="h-[8rem] w-full bg-lightGrey resize-none mb-4 rounded-[5px] p-4 text-s-body text-navy placeholder:font-normal "
         placeholder="Type your reply here"
         ref={replyRef}
       ></textarea>
-      <div onClick={addReplyHandler}>
+      <div onClick={addReplyHandler} className="flex-shrink-0">
         <PurpleBtn>Post Reply</PurpleBtn>
       </div>
     </div>
