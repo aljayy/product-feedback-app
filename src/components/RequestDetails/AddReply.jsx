@@ -4,7 +4,13 @@ import { addRoadmapReply } from "../../store/roadmapSlice";
 import { addSuggestionReply } from "../../store/suggestionSlice";
 import PurpleBtn from "../UI/Buttons/PurpleBtn";
 
-function AddReply({ requestId, commentId, roadmap, replyingTo }) {
+function AddReply({
+  requestId,
+  commentId,
+  roadmap,
+  replyingTo,
+  toggleVisibility,
+}) {
   const replyRef = useRef();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.general.user);
@@ -30,6 +36,8 @@ function AddReply({ requestId, commentId, roadmap, replyingTo }) {
           replyingTo,
         })
       );
+
+    toggleVisibility(false);
   }
 
   return (
