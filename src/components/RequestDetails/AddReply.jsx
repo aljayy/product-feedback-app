@@ -45,7 +45,7 @@ function AddReply({
   return (
     <div className="col-start-1 col-span-3 row-start-3 row-end-3 mt-4 flex flex-col items-end m:col-start-2 m:ml-8 m:flex-row m:items-start m:gap-x-4">
       <textarea
-        className="h-[8rem] w-full bg-lightGrey resize-none mb-4 rounded-[5px] p-4 text-s-body text-navy placeholder:font-normal "
+        className="h-[8rem] w-full bg-lightGrey resize-none mb-4 rounded-[5px] p-4 text-s-body text-navy placeholder:font-normal  cursor-pointer hover:border-blue border-[1px] focus:outline-none"
         placeholder="Type your reply here"
         ref={replyRef}
       ></textarea>
