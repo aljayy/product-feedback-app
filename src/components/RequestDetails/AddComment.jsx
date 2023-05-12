@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addSuggestionComment } from "../../store/suggestionSlice";
 import { addRoadmapComment } from "../../store/roadmapSlice";
@@ -7,9 +7,14 @@ import PurpleBtn from "../UI/Buttons/PurpleBtn";
 
 function AddComment({ request }) {
   const newCommentId = useSelector((state) => state.general.newCommentId);
+  const [charCount, setCharCount] = useState(250);
   const user = useSelector((state) => state.general.user);
   const inputRef = useRef();
   const dispatch = useDispatch();
+
+  function charCountHandler() {
+    setCharCount(250 - inputRef.current.textLength);
+  }
 
   function postCommentHandler() {
     if (inputRef.current.value.trim().length < 1) return;
@@ -43,10 +48,12 @@ function AddComment({ request }) {
         className="w-full max-h-[8rem] bg-lightGrey rounded-[5px] mt-6 mb-4 p-4 text-s-body text-navy placeholder:font-normal outline-none resize-none m:px-6 m:text-m-body cursor-pointer hover:border-blue border-[1px] focus:outline-none"
         placeholder="Type your comment here"
         ref={inputRef}
+        onChange={charCountHandler}
+        maxLength={250}
       ></textarea>
       <div className="flex items-center justify-between">
         <p className="text-s-body font-normal text-lightNavySecondary m:text-m-body">
-          250 Characters left
+          {`${charCount} Characters left`}
         </p>
         <div onClick={postCommentHandler}>
           <PurpleBtn>Post Comment</PurpleBtn>
