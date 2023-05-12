@@ -33,5 +33,5 @@ const generalSlice = createSlice({
   },
 });
 
-export const { toggleReply } = generalSlice.actions;
+export const { updateCommentId, updateRequestId } = generalSlice.actions;
 export default generalSlice;
