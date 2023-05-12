@@ -25,7 +25,7 @@ function ReplyComment({ reply, requestId, commentId, roadmap, replyingTo }) {
       </div>
       <div className="self-center justify-self-end">
         <button
-          className="text-s-body text-blue"
+          className="text-s-body text-blue hover:underline"
           onClick={() => setShowReply(!showReply)}
         >
           Reply
