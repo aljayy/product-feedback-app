@@ -9,6 +9,11 @@ function RoadmapStatusCard({ request, colorway, label }) {
   if (colorway === "purple") borderColor = "border-purple";
   if (colorway === "babyBlue") borderColor = "border-babyBlue";
 
+  const commentsCount = request.comments.flatMap((comment) => [
+    comment,
+    ...(comment.replies || []),
+  ]).length;
+
   return (
     <Link to={`/request-discussion/roadmap/${request.id}`}>
       <div
@@ -35,7 +40,7 @@ function RoadmapStatusCard({ request, colorway, label }) {
             flex={true}
             roadmap={true}
           />
-          <CommentCounter count={request.comments.length} small={true} />
+          <CommentCounter count={commentsCount} small={true} />
         </div>
       </div>
     </Link>
