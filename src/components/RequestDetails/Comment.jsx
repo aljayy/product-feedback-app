@@ -23,19 +23,27 @@ function Comment({ comment, request }) {
   useEffect(() => {
     const reply = replyRef.current;
     let height = 0;
+    let gap;
+
+    if (windowWidth <= 375) {
+      gap = 24;
+    } else if (windowWidth <= 768) {
+      gap = 17;
+    } else gap = 32;
 
     if (reply) {
       for (let i = 0; i < reply.children[1].children.length; i++) {
+        let replies = reply.children[1].children[i];
         if (i !== reply.children[1].children.length - 1) {
-          height += Number(reply.children[1].children[i].clientHeight);
+          height += Number(replies.offsetHeight + gap);
+        }
+        if (i === reply.children[1].children.length - 1) {
+          height += 20;
         }
       }
-      let isMobile = windowWidth > 768 ? 32 : 24;
-      height += isMobile + 20;
     }
-
     setBarHeight(height);
-  }, [windowWidth]);
+  }, [windowWidth, comment.replies?.length]);
 
   return (
     <div className="border-b-[1px] border-b-[#8C92B3]/[0.25] pb-6 last:border-b-0 last:pb-0 m:pb-8">
