@@ -91,7 +91,7 @@ function Comment({ comment, request }) {
             className={`w-[1px] bg-[#8C92B3]/[0.25]`}
             style={{ height: `${barHeight}px` }}
           ></div>
-          <div className="flex flex-col gap-y-6 m:gap-y-[1.7rem] l:gap-y-8">
+          <div className="flex flex-col w-full gap-y-6 m:gap-y-[1.7rem] l:gap-y-8">
             {comment.replies.map((reply, index) => {
               return (
                 <ReplyComment
