@@ -27,7 +27,7 @@ function RequestDetailsPage() {
 
   return (
     <div className="px-6 pt-6 pb-[8.8rem] flex flex-col gap-6 m:pt-[5.6rem] m:px-10 m:pb-[12rem] l:pt-[8rem] l:px-[35.5rem] l:pb-[13rem]">
-      <RequestDetailsActions />
+      <RequestDetailsActions board={board} id={id} />
       <SuggestionStatusCard request={request} />
       <CommentsWrapper request={request} />
       <AddComment request={request} />
