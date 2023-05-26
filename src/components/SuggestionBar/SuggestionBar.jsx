@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSort } from "../../store/suggestionSlice";
 import chevron from "../../assets/shared/chevronlight.svg";
@@ -56,9 +57,11 @@ function SuggestionBar() {
           <Dropdown options={sorts} onClick={changeSorting} />
         </div>
       </div>
-      <div className="col-start-3 justify-self-end">
-        <PurpleBtn>+ Add Feedback</PurpleBtn>
-      </div>
+      <Link to="/new-request">
+        <div className="col-start-3 justify-self-end">
+          <PurpleBtn>+ Add Feedback</PurpleBtn>
+        </div>
+      </Link>
     </div>
   );
 }
