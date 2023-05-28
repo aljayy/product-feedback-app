@@ -31,13 +31,6 @@ function RequestForm() {
     return temp;
   });
 
-  console.log(request);
-
-  useEffect(() => {
-    if (board && id) setEditing(true);
-    else setEditing(false);
-  }, [board, id]);
-
   const icon = editing ? editIcon : newIcon;
 
   return (
