@@ -32,11 +32,14 @@ function RequestForm() {
   });
 
   const icon = editing ? editIcon : newIcon;
+  const formTitle = editing
+    ? `Editing '${request.title}'`
+    : "Create New Feedback";
 
   return (
     <form className="bg-white rounded-[1rem] w-full">
       <img src={icon} alt="Form Icon" />
-      <h2></h2>
+      <h2>{formTitle}</h2>
     </form>
   );
 }
