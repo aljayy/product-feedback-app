@@ -4,7 +4,7 @@ import RequestForm from "../components/UI/Form/RequestForm";
 
 function AddRequestPage() {
   return (
-    <div>
+    <div className="pt-8 px-6 pb-[7.7rem]">
       <GoBackBtn light={false} />
       <RequestForm />
     </div>
