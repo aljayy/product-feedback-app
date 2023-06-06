@@ -37,8 +37,10 @@ function RequestForm() {
     : "Create New Feedback";
 
   return (
-    <form className="bg-white rounded-[1rem] w-full pt-[4.4rem] px-6 pb-6">
-      <img src={icon} alt="Form Icon" />
+    <form className="bg-white rounded-[1rem] w-full pt-[4.4rem] px-6 pb-6 relative">
+      <div className="absolute -top-[2rem] w-10">
+        <img src={icon} alt="Form Icon" />
+      </div>
       <h2>{formTitle}</h2>
     </form>
   );
